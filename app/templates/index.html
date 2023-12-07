@@ -4,10 +4,40 @@
         <title>sinin sivut</title>
         <meta charset="UTF8" />
         <meta name="viewport" content="width=device width, initial-scale=1.0" />
+
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+            integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+        />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     </head>
 
     <body>
         <div class="container"></div>
-        <center>{% block content %} {% endblock %}</center>
+        <center>
+            <div class="btn-group" role="group">
+                <a class="btn btn-primary btn-sm" href="/">Etusivu</a>
+                <a class="btn btn-danger btn-sm" href="/work">Teokset</a>
+                <a class="btn btn-info btn-sm" href="/installation"
+                    >Installaatiot</a
+                >
+                <a class="btn btn-warning btn-sm" href="/about">Lisätietoja</a>
+                <a class="btn btn-success btn-sm" href="/contact"
+                    >Ota yhteyttä</a
+                >
+                <!-- <a class="btn btn-primary btn-sm">Kirjaudu</a>
+                <a class="btn btn-primary btn-sm">Kirjaudu ulos</a> -->
+            </div>
+
+            {% block content %} {% endblock %}
+        </center>
     </body>
 </html>
