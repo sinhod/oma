@@ -1,3 +1,40 @@
 {% extends 'index.html' %} {% block content %}
-<h1>(work)</h1>
+
+<div class="background">
+    <h4 class="title">TEOKSET</h4>
+
+    {% for s in works %}
+    <div class="card">
+        <div class="card-body">
+            <br />
+            {% if s.imageLink_1 != None %}
+            <img
+                class="picture"
+                style="max-width: 40%; max-height: 400px"
+                src="{{s.imageLink_1}}"
+            />
+            {% endif %}
+
+            <p class="card-text" style="font-size: small; margin-top: 3%">
+                {{s.name}} {{s.year}}
+            </p>
+
+            {% if s.collaboration != None %}
+            <p class="card-text" style="font-size: small">
+                Yhteistyössä {{s.collaboration}}
+            </p>
+            {% endif %} {% if s.instagramLink != None %}
+            <p class="card-text">
+                <a href="{{s.instagramLink}}" style="font-size: small">
+                    Instagram
+                </a>
+                <br />
+                <br />
+            </p>
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+    <br />
+</div>
 {% endblock %}

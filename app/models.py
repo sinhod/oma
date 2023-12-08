@@ -4,25 +4,17 @@ from django.db import models
 class Work(models.Model):
     name=models.CharField(max_length=50, default="teoksen nimi")
     year=models.IntegerField(default=0)
-    media=models.CharField(max_length=100, default="tekniikka")
-    imageLink_1=models.CharField(max_length=2090, default="kuvalinkki")
-    def __str__(self):
-        return f"{self.name} {self.year}"
-
-# Installaatioiden tiedot
-class Installation(models.Model):
-    installationName=models.CharField(max_length=50, default="installaation nimi")
-    collaboration=models.CharField(max_length=100, default="", null=True, blank=True)
-    year=models.IntegerField(default=0)
-    media=models.CharField(max_length=100, default="tekniikka")
+    media=models.CharField(max_length=100, default="tekniikka", null=True, blank=True)
+    installation=models.BooleanField(default=False)
     imageLink_1=models.CharField(max_length=2090, default="", null=True, blank=True)
     imageLink_2=models.CharField(max_length=2090, default="", null=True, blank=True)
     imageLink_3=models.CharField(max_length=2090, default="", null=True, blank=True)
     imageLink_4=models.CharField(max_length=2090, default="", null=True, blank=True)
     videoLink=models.CharField(max_length=2090, default="", null=True, blank=True)
     instagramLink=models.CharField(max_length=2090, default="", null=True, blank=True)
+    collaboration=models.CharField(max_length=100, default="", null=True, blank=True)
     def __str__(self):
-        return f"{self.installationName}"
+        return f"{self.name} {self.year}"
 
 class Contact(models.Model):
     # Yhteydenottajan tiedot ja viestin sisältö

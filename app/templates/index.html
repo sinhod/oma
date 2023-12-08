@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>sinin sivut</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'style.css' %}" />
+
+        <title>touchingcolor</title>
         <meta charset="UTF8" />
         <meta name="viewport" content="width=device width, initial-scale=1.0" />
 
@@ -20,24 +23,27 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     </head>
 
-    <body>
-        <div class="container"></div>
-        <center>
-            <div class="btn-group" role="group">
-                <a class="btn btn-primary btn-sm" href="/">Etusivu</a>
-                <a class="btn btn-danger btn-sm" href="/work">Teokset</a>
-                <a class="btn btn-info btn-sm" href="/installation"
-                    >Installaatiot</a
-                >
-                <a class="btn btn-warning btn-sm" href="/about">Lisätietoja</a>
-                <a class="btn btn-success btn-sm" href="/contact"
-                    >Ota yhteyttä</a
-                >
-                <!-- <a class="btn btn-primary btn-sm">Kirjaudu</a>
+    <body class="color">
+        <div class="container">
+            <center>
+                <div class="btn-group" role="group" style="margin-top: 3%">
+                    <h4 class="name-title">SINI HODJU</h4>
+                    <a class="button" href="/">Etusivu</a>
+                    <a class="button" href="/work">Teokset</a>
+                    <a class="button" href="/installation">Installaatiot</a>
+                    <a class="button" href="/about">Lisätietoja</a>
+                    <a class="button" href="/contact">Ota yhteyttä</a>
+                    <!-- <a class="btn btn-primary btn-sm">Kirjaudu</a>
                 <a class="btn btn-primary btn-sm">Kirjaudu ulos</a> -->
-            </div>
+                </div>
 
-            {% block content %} {% endblock %}
-        </center>
+                {% block content %} {% endblock %}
+            </center>
+            <a
+                class="admin-link"
+                href="http://127.0.0.1:8000/admin/login/?next=/admin/"
+                >Admin</a
+            >
+        </div>
     </body>
 </html>
