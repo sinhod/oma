@@ -6,6 +6,7 @@ class Work(models.Model):
     name=models.CharField(max_length=50, default="teoksen nimi")
     year=models.IntegerField(default=0)
     media=models.CharField(max_length=100, default="tekniikka", null=True, blank=True)
+    size=models.CharField(max_length=50, default="teoksen koko", null=True, blank=True)
     installation=models.BooleanField(default=False)
     imageLink_1=models.CharField(max_length=2090, default="", null=True, blank=True)
     imageLink_2=models.CharField(max_length=2090, default="", null=True, blank=True)

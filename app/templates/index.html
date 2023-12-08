@@ -25,25 +25,27 @@
 
     <body class="color">
         <div class="container">
-            <center>
-                <div class="btn-group" role="group" style="margin-top: 3%">
+            <div class="inline-flex-parent">
+                <div class="name-title-div">
                     <h4 class="name-title">SINI HODJU</h4>
+                </div>
+                <div class="btn-group" role="group">
                     <a class="button" href="/">Etusivu</a>
                     <a class="button" href="/work">Teokset</a>
                     <a class="button" href="/installation">Installaatiot</a>
                     <a class="button" href="/about">Lisätietoja</a>
                     <a class="button" href="/contact">Ota yhteyttä</a>
-                    <!-- <a class="btn btn-primary btn-sm">Kirjaudu</a>
-                <a class="btn btn-primary btn-sm">Kirjaudu ulos</a> -->
                 </div>
+            </div>
 
-                {% block content %} {% endblock %}
-            </center>
+            {% block content %} {% endblock %}
+
             <a
                 class="admin-link"
                 href="http://127.0.0.1:8000/admin/login/?next=/admin/"
-                >Admin</a
+                >Django Admin</a
             >
+            <a class="admin-link" href="http://127.0.0.1:8000/modify">Admin</a>
         </div>
     </body>
 </html>

@@ -1,15 +1,17 @@
 {% extends 'index.html' %} {% block content %}
 
 <div>
-    <center>
-        <h4 class="title">TEOKSET</h4>
+    <h4 class="title">TIETOJEN MUOKKAUS</h4>
 
+    <button>Lisää uusi teos</button>
+
+    <center>
         {% for s in works %}
         <div class="card">
             <div class="card-body">
                 <br />
                 {% if s.imageLink_1 != None %}
-                <img class="picture2" src="{{s.imageLink_1}}" />
+                <img class="picture3" src="{{s.imageLink_1}}" />
                 {% endif %}
 
                 <p class="card-text" style="font-size: small; margin-top: 3%">
@@ -29,10 +31,13 @@
                     <br />
                 </p>
                 {% endif %}
+                <div>
+                    <button>Poista</button>
+                    <button>Muokkaa</button>
+                </div>
             </div>
         </div>
         {% endfor %}
     </center>
-    <br />
 </div>
 {% endblock %}

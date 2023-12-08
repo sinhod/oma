@@ -39,3 +39,12 @@ def cvview(request):
     variable = "Tämä on merkkijono"
     context = {'a': variable}
     return render(request, 'cvpage.html', context)
+
+def modifyingview(request):
+    w = Work.objects.all().order_by('-year')
+    context = { 'works': w }
+    return render(request, 'modifyingpage.html', context)
+
+
+
+

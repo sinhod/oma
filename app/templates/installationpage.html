@@ -1,6 +1,7 @@
 {% extends 'index.html' %} {% block content %}
 
 <div class="background">
+    <center>
     <h4 class="title">INSTALLAATIOT</h4>
 
     {% for s in installations %} {% if s.installation == True %}
@@ -33,7 +34,7 @@
     {% endif %}
 
 {% endfor %}
-
+</center>
 </div>
 {% endblock %}
 

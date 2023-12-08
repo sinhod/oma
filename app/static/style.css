@@ -38,46 +38,57 @@ p {
 .about-link {
     font-family: "Lucida Console";
     font-size: small;
+    padding-left: 5%;
 }
 .about {
     margin-left: 20%;
     margin-right: 20%;
     padding-bottom: 3%;
+    min-width: 270px;
     background-color: white;
 }
-
-/* .background-frontpage {
-    background-color: rgb(32, 29, 29);
-    padding-bottom: 1%;
-    /* background-color: darkgray; */
-/* background-color: rgb(235, 235, 235); */
-
-/* .background {
-    background-color: rgb(32, 29, 29);
-} */
 
 .color {
     background-color: rgb(54, 52, 52);
 }
 
 .title {
-    /* color: rgb(226, 225, 225); */
     color: rgb(187, 183, 183);
+    margin: auto;
+    padding-bottom: 10px;
 }
 
 .picture {
     max-width: 100%;
 }
+.picture2 {
+    max-height: 300px;
+    max-width: 300px;
+}
 
+.picture3 {
+    max-height: 50px;
+    max-width: 50px;
+}
 .name-title {
-    /* color: rgb(48, 78, 248); */
     color: rgb(68, 96, 252);
     font-weight: 500;
-    /* font-size: x-large; */
     font-size: xx-large;
 }
 
+.btn-group {
+    flex-wrap: wrap-reverse;
+}
+
+.name-title-div {
+    margin-right: 90px;
+}
+
+.inline-flex-parent {
+    padding-top: 30px;
+    display: inline-flex;
+}
+
 .card {
-    /* margin-top: 20px; */
-    width: 50%;
+    max-width: 500px;
 }
