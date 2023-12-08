@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 # Teosten tiedot
 class Work(models.Model):
@@ -13,6 +14,7 @@ class Work(models.Model):
     videoLink=models.CharField(max_length=2090, default="", null=True, blank=True)
     instagramLink=models.CharField(max_length=2090, default="", null=True, blank=True)
     collaboration=models.CharField(max_length=100, default="", null=True, blank=True)
+    timestamp=models.DateTimeField(default=timezone.now, null=True, blank=True)
     def __str__(self):
         return f"{self.name} {self.year}"
 
@@ -28,5 +30,9 @@ class Contact(models.Model):
     message=models.CharField(max_length=1000, default="")
     # Oma email
     email=models.CharField(max_length=50, default="vastaanottajan email")
+    timestamp=models.DateTimeField(default=timezone.now, null=True, blank=True)
     def __str__(self):
         return f"{self.sendersName}"
+    
+class Series(models.Model):
+    seriesName=models.CharField(max_length=50, default="sarjan nimi")
