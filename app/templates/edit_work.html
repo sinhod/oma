@@ -1,0 +1,106 @@
+{% extends 'index.html' %} {% block content %}
+
+<div>
+    <center>
+        <h4 class="title">TIETOJEN MUOKKAUS</h4>
+
+        <div class="card" style="width: 25rem">
+            <div class="card-header">
+                <h5>Muokataan {{w.name}} {{w.year}}</h5>
+            </div>
+
+            <div class="card-body">
+                <form method="post" action="/edit-work-post/{{w.id}}/">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label>Nimi</label>
+                        <input type="text" name="name" value="{{w.name}}" />
+                    </div>
+                    <div class="form-group">
+                        <label>Vuosi</label>
+                        <input type="number" name="year" value="{{w.year}}" />
+                    </div>
+                    <div class="form-group">
+                        <label>Tekniikka</label>
+                        <input type="text" name="media" value="{{w.media}}" />
+                    </div>
+                    <div class="form-group">
+                        <label>Koko</label>
+                        <input type="text" name="size" value="{{w.size}}" />
+                    </div>
+                    <div class="form-group">
+                        <label>Onko installaatio?</label>
+                        <input
+                            type="text"
+                            name="installation"
+                            value="{{w.installation}}"
+                        />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Kuvalinkki 1</label>
+                        <input
+                            type="text"
+                            name="imagelink1"
+                            value="{{w.imagelink1}}"
+                        />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Kuvalinkki 2</label>
+                        <input
+                            type="text"
+                            name="imagelink2"
+                            value="{{w.imagelink2}}"
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label>Kuvalinkki 3</label>
+                        <input
+                            type="text"
+                            name="imagelink3"
+                            value="{{w.imagelink3}}"
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label>Linkki videoon</label>
+                        <input
+                            type="text"
+                            name="videolink"
+                            value="{{w.videolink}}"
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label>Instagramlinkki</label>
+                        <input
+                            type="text"
+                            name="instagramlink"
+                            value="{{w.instagramlink}}"
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label>Yhteistyössä</label>
+                        <input
+                            type="text"
+                            name="collaboration"
+                            value="{{w.collaboration}}"
+                        />
+                    </div>
+                    <input
+                        type="submit"
+                        value="Tallenna"
+                        class="btn btn-success btn-sm"
+                    />
+                    <input
+                        type="button"
+                        onclick="window.location.href='/work'"
+                        value="Peruuta"
+                        class="btn btn-secondary btn-sm"
+                    />
+                </form>
+            </div>
+        </div>
+    </center>
+    <br />
+</div>
+{% endblock %}

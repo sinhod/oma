@@ -1,29 +1,45 @@
 {% extends 'index.html' %} {% block content %}
 
 <div>
+    <h4 class="title">TEOKSET</h4>
     <center>
-        <h4 class="title">TEOKSET</h4>
 
         {% for s in works %}
         <div class="card">
             <div class="card-body">
                 <br />
-                {% if s.imageLink_1 != None %}
-                <img class="picture2" src="{{s.imageLink_1}}" />
+                {% if s.imagelink1 != None %}
+                <img class="picture2" src="{{s.imagelink1}}" />
                 {% endif %}
 
-                <p class="card-text" style="font-size: small; margin-top: 3%">
-                    {{s.name}} {{s.year}}
-                </p>
+                {% if s.size != None %}
+            <p class="card-text" style="font-size: small; margin-top: 3%"">
+                {{s.name}} {{s.year}} <br>
+                {{s.size}}
+            </p>
+            {% endif %}
+            {% if s.size == None %}
+            <p class="card-text" style="font-size: small; margin-top: 3%"">
+                {{s.name}} {{s.year}}
+            </p>
+            {% endif %}
 
                 {% if s.collaboration != None %}
                 <p class="card-text" style="font-size: small">
                     Yhteistyössä {{s.collaboration}}
                 </p>
-                {% endif %} {% if s.instagramLink != None %}
+                {% endif %} {% if s.instagramlink != None %}
                 <p class="card-text">
-                    <a href="{{s.instagramLink}}" style="font-size: small">
+                    <a href="{{s.instagramlink}}" style="font-size: small">
                         Instagram
+                    </a>
+                    <br />
+                    <br />
+                </p>
+                {% endif %} {% if s.videolink != None %}
+                <p class="card-text">
+                    <a href="{{s.videolink}}" style="font-size: small">
+                        Videolink
                     </a>
                     <br />
                     <br />

@@ -3,28 +3,34 @@
 <div>
     <h4 class="title">TIETOJEN MUOKKAUS</h4>
 
-    <button>Lisää uusi teos</button>
+    <button id="add-btn" class="btn-success btn-sm" onclick="showaddform()">
+        Lisää uusi teos
+    </button>
 
     <center>
+        <div class="luokka" id="add-div"><p>testi</p></div>
         {% for s in works %}
         <div class="card">
             <div class="card-body">
                 <br />
-                {% if s.imageLink_1 != None %}
-                <img class="picture3" src="{{s.imageLink_1}}" />
-                {% endif %}
-
+                {% if s.imagelink1 != None %}
+                <img class="picture3" src="{{s.imagelink1}}" />
+                {% endif %} {% if s.size == None %}
                 <p class="card-text" style="font-size: small; margin-top: 3%">
                     {{s.name}} {{s.year}}
                 </p>
-
-                {% if s.collaboration != None %}
+                {% endif %} {% if s.size != None %}
+                <p class="card-text" style="font-size: small; margin-top: 3%">
+                    {{s.name}} {{s.year}} <br />
+                    {{s.size}}
+                </p>
+                {% endif %} {% if s.collaboration != None %}
                 <p class="card-text" style="font-size: small">
                     Yhteistyössä {{s.collaboration}}
                 </p>
-                {% endif %} {% if s.instagramLink != None %}
+                {% endif %} {% if s.instagramlink != None %}
                 <p class="card-text">
-                    <a href="{{s.instagramLink}}" style="font-size: small">
+                    <a href="{{s.instagramlink}}" style="font-size: small">
                         Instagram
                     </a>
                     <br />
@@ -32,12 +38,96 @@
                 </p>
                 {% endif %}
                 <div>
-                    <button>Poista</button>
-                    <button>Muokkaa</button>
+                    <a
+                        href="/confirm-deletework/{{s.id}}"
+                        class="btn btn-danger"
+                        btn-sm
+                    >
+                        Poista
+                    </a>
+
+                    <a href="/edit-work-get/{{s.id}}" class="btn btn-primary"
+                        >Muokkaa</a
+                    >
                 </div>
             </div>
         </div>
         {% endfor %}
     </center>
 </div>
+
+<script>
+    let x = `
+            <h2 style="color: lightblue">Täytä tiedot</h2>
+
+            <div class="card" style="width: 23rem;">
+                <div class="card-body">
+                    <form class="form-float-right" method="post" action="/add/">
+                        {% csrf_token %}
+                        <div class="form-entry">
+                            <label class="red-text">* pakollinen tieto</label>
+                        </div>
+                        <div class="form-entry">
+                        <label for="a" >Teoksen nimi *</label>
+                        <input id="a" class="card-text" class="card-text" type="text" name="name"><br>
+                        </div>
+                        <div class="form-entry">
+                         <label for="b" >Vuosi *</label>
+                         <input id="b" class="card-text" type="number" placeholder="2023" name="year"><br>
+                        </div>
+                        <div class="form-entry">
+                         <label for="c" >Tekniikka</label>
+                         <input id="c" class="card-text" type="text" name="media"><br>
+                        </div>
+                        <div class="form-entry">
+                        <label for="d" >Koko</label>
+                        <input id="d" class="card-text" type="text" name="size"><br>
+                        </div>
+                        <div class="form-entry">
+                        <label>Kuvalinkit 1</label>
+                        <input class="card-text" type="text" placeholder="kuvalinkki 1" name="imagelink1"><br>
+                        </div>
+                        <div class="form-entry">
+                        <label>2</label>
+                        <input class="card-text" type="text" placeholder="kuvalinkki 2" name="imagelink2"><br>
+                        </div>
+                        <div class="form-entry">
+                        <label>3</label>
+                        <input class="card-text" type="text" placeholder="kuvalinkki 3" name="imagelink3"><br>
+                        </div>
+                        <div class="form-entry">
+                        <label for="e" >Linkki videoon</label>
+                        <input id="e" class="card-text" type="text" name="videolink"><br>
+                        </div>
+                        <div class="form-entry">
+                        <label for="f" >Instagramlinkki</label>
+                        <input id="f" class="card-text" type="text" name="instagramlink"><br>
+                        </div>
+                        <div class="form-entry">
+                        <label for="g" >Yhteistyötahot</label>
+                        <input id="g" class="card-text" type="text" name="collaboration"><br>
+                        </div>
+                        <div class="form-entry">
+                        <label>Onko teos installaatio?</label>
+                        <input class="card-text" type="radio" name="installation" value="1" checked> Kyllä </input>
+                        <input class="card-text" type="radio" name="installation" value="0" checked> Ei </input>
+                        <br/>
+                        <br/>
+                        </div>
+                        <div class="form-entry">
+                        <input type="submit" value="OK" class="btn btn-success btn-sm" name="">
+                        <input type="submit" id="hide-btn" class="btn btn-secondary btn-sm" onclick="hideaddform()" value="Peruuta" name="">
+                        </div>
+                    </form>
+                </div>
+            </div>`
+    function showaddform() {
+        document.getElementById("add-div").innerHTML = x
+    }
+
+    function hideaddform() {
+        document.getElementById("add-div").innerHTML = ""
+    }
+</script>
+
 {% endblock %}

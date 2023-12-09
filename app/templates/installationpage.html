@@ -1,30 +1,38 @@
 {% extends 'index.html' %} {% block content %}
 
 <div class="background">
-    <center>
     <h4 class="title">INSTALLAATIOT</h4>
+    <center>
 
     {% for s in installations %} {% if s.installation == True %}
     <div class="card">
         <div class="card-body">
             <br />
-            {% if s.imageLink_1 != None %}
+            {% if s.imagelink1 != None %}
             <img
                 class="picture"
                 style="max-width: 40%; max-height: 400px"
-                src="{{s.imageLink_1}}"
+                src="{{s.imagelink1}}"
             />
             {% endif %}
 
+            {% if s.size != None %}
+            <p class="card-text" style="font-size: small; margin-top: 3%"">
+                {{s.name}} {{s.year}} <br>
+                {{s.size}}
+            </p>
+            {% endif %}
+            {% if s.size == None %}
             <p class="card-text" style="font-size: small; margin-top: 3%"">
                 {{s.name}} {{s.year}}
             </p>
+            {% endif %}
 
             {% if s.collaboration != None %}
             <p class="card-text" style="font-size: small">Yhteistyössä {{s.collaboration}}</p>
             {% endif %} {% if s.instagramLink != None %}
             <p class="card-text" style="font-size: small">
-                <a href="{{s.instagramLink}}"> Instagram </a>
+                <a href="{{s.instagramlink}}"> Instagram </a>
                 <br />
                 <br />
             </p>
