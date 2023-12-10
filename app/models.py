@@ -2,8 +2,13 @@ from django.db import models
 from django.utils import timezone
 from django import forms
 
+# Sarjan merkitsemistä varten
+class Series(models.Model):
+    seriesname=models.CharField(max_length=50, unique=True)
+
 # Teosten tiedot
 class Work(models.Model):
+    inseries=models.ForeignKey(Series, on_delete=models.PROTECT, null=True, blank=True)# ei saa poistaa sarjoja, joissa on jokin teos
     name=models.CharField(max_length=50, default="")
     year=models.IntegerField(default=0)
     media=models.CharField(max_length=100, default="", null=True, blank=True)
@@ -19,5 +24,3 @@ class Work(models.Model):
     def __str__(self):
         return f"{self.name} {self.year}"
     
-class Series(models.Model):
-    seriesName=models.CharField(max_length=50, default="sarjan nimi")

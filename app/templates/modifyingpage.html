@@ -6,12 +6,20 @@
     <button id="add-btn" class="btn-success btn-sm" onclick="showaddform()">
         Lisää uusi teos
     </button>
+    <button
+        id="addseries-btn"
+        class="btn-success btn-sm"
+        onclick="showaddformseries()"
+    >
+        Lisää uusi sarja
+    </button>
     <br />
     <br />
     <a class="btn btn-danger btn-sm" href="/logout">Kirjaudu ulos</a>
 
     <center>
-        <div class="luokka" id="add-div"><p>testi</p></div>
+        <div class="luokka" id="add-div"></div>
+        <div class="luokka" id="add-div2"></div>
         {% for s in works %}
         <div class="card">
             <div class="card-body">
@@ -39,6 +47,10 @@
                     <br />
                     <br />
                 </p>
+                {% endif %} {% if s.inseries != None %}
+                <p class="card-text" style="font-size: small">
+                    Sarjassa {{ s.inseries.seriesname }}
+                </p>
                 {% endif %}
                 <div>
                     <a
@@ -56,6 +68,22 @@
             </div>
         </div>
         {% endfor %}
+
+        <div>
+            <h5 class="title">SARJAT</h5>
+            {% for t in series %}
+            <div class="card">
+                <div class="card-body">
+                    <p
+                        class="card-text"
+                        style="font-size: small; margin-top: 3%"
+                    >
+                        {{t.seriesname}}
+                    </p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
     </center>
 </div>
 
@@ -71,8 +99,12 @@
                             <label class="red-text">* pakollinen tieto</label>
                         </div>
                         <div class="form-entry">
-                        <label for="a" >Teoksen nimi *</label>
+                        <label for="a"> Teoksen nimi *</label>
                         <input id="a" class="card-text" class="card-text" type="text" name="name" required><br>
+                        </div>
+                        <div class="form-entry">
+                        <label for="ab"> Sarjan nimi</label>
+                        <input id="ab" class="card-text" class="card-text" type="text" name="seriesname"><br>
                         </div>
                         <div class="form-entry">
                         <label for="b" >Vuosi *</label>
@@ -124,12 +156,40 @@
                     </form>
                 </div>
             </div>`
+
+    let y = `
+            <h2 style="color: lightblue">Täytä tiedot</h2>
+
+            <div class="card" style="width: 23rem;">
+                <div class="card-body">
+                    <form class="form-float-right" method="post" action="/addseries/">
+                        {% csrf_token %}
+                        <div class="form-entry">
+                        <label for="a" >Sarjan nimi</label>
+                        <input id="a" class="card-text" class="card-text" type="text" name="seriesname"><br>
+                        </div>
+                        <br/>
+                        <br/>
+                        <div class="form-entry">
+                        <input type="submit" value="OK" class="btn btn-success btn-sm" name="">
+                        <input type="submit" id="hide-btn" class="btn btn-secondary btn-sm" onclick="hideaddformseries()" value="Peruuta" name="">
+                        </div>
+                    </form>
+                </div>
+            </div>`
+
     function showaddform() {
         document.getElementById("add-div").innerHTML = x
     }
 
     function hideaddform() {
         document.getElementById("add-div").innerHTML = ""
+    }
+    function showaddformseries() {
+        document.getElementById("add-div2").innerHTML = y
+    }
+    function hideaddformseries() {
+        document.getElementById("add-div2").innerHTML = ""
     }
 </script>
 {% endblock %}

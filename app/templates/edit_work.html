@@ -22,6 +22,14 @@
                         />
                     </div>
                     <div class="form-group">
+                        <label>Sarjan nimi</label>
+                        <input
+                            type="text"
+                            name="seriesname"
+                            value="{{w.inseries.seriesname}}"
+                        />
+                    </div>
+                    <div class="form-group">
                         <label>Vuosi</label>
                         <input
                             type="number"
@@ -135,7 +143,7 @@
                     />
                     <input
                         type="button"
-                        onclick="window.location.href='/work'"
+                        onclick="window.location.href='/modify'"
                         value="Peruuta"
                         class="btn btn-secondary btn-sm"
                     />

@@ -4,7 +4,7 @@ from . import views
 
 from .views import landingview, aboutview, cvview, installationview, workview, \
       modifyingview, addview, deletework, confirmdeletework, edit_work_get, edit_work_post, \
-      loginview, login_action, logout_action, contactview
+      loginview, login_action, logout_action, contactview, addseriesview
 
 urlpatterns = [
     path("", landingview),
@@ -14,6 +14,7 @@ urlpatterns = [
     path("work/", workview),
     path("modify/", modifyingview),
     path('add/', addview),
+    path('addseries/', addseriesview),
     path('deletework/<int:id>/', deletework),
     path('confirm-deletework/<int:id>/', confirmdeletework),
     path('edit-work-get/<int:id>/', edit_work_get),

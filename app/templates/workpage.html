@@ -44,6 +44,10 @@
                     <br />
                     <br />
                 </p>
+                {% endif %} {% if s.inseries != None %}
+                <p class="card-text" style="font-size: small">
+                    Sarjassa: {{ s.inseries.seriesname }}
+                </p>
                 {% endif %}
             </div>
         </div>
