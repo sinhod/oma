@@ -37,7 +37,8 @@ def modifyingview(request):
          return render(request, 'loginpage.html')
     else:
         w = Work.objects.all().order_by('-year')
-        context = { 'works': w }
+        s = Series.objects.all()
+        context = { 'works': w , 'series': s }
         return render(request, 'modifyingpage.html', context)
 
 def addview(request):
@@ -45,6 +46,11 @@ def addview(request):
          return render(request, 'loginpage.html')
     else:
         a = request.POST['name']
+        ab = request.POST['seriesname']
+        if ab == "":
+            ab = None
+        else:
+            ab = Series.objects.filter(seriesname=ab).first()
         b = request.POST['year']
         c = request.POST['media']
         if c == "":
@@ -71,10 +77,19 @@ def addview(request):
         k = request.POST['collaboration']
         if k == "":
             k = None
-        Work(name = a, year = b, media = c, size = d, installation = e,
+        Work(name = a, inseries = ab, year = b, media = c, size = d, installation = e,
             imagelink1 = f, imagelink2 = g, imagelink3 = h, videolink = i, instagramlink = j, collaboration = k).save()
         return redirect(modifyingview)
-    
+
+def addseriesview(request):
+    print('addseriesview')
+    if not request.user.is_authenticated: 
+         return render(request, 'loginpage.html')
+    else:
+        sname = request.POST['seriesname']
+        Series(seriesname=sname).save()
+        return redirect(modifyingview)
+
 # Teoksen poistamista varten
 def confirmdeletework(request, id):
     if not request.user.is_authenticated: 

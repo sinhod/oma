@@ -102,3 +102,7 @@ p {
 .red-text {
     color: crimson;
 }
+
+.emailpicture {
+    max-width: 220px;
+}
