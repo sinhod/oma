@@ -1,0 +1,43 @@
+{% extends 'index.html' %} {% block content %}
+
+<div class="card" style="width: 25rem; margin-top: 50px">
+    <div class="card-header">
+        <h5>Kirjautuminen</h5>
+        <div class="card-body">
+            <form method="post" action="/login/">
+                {%csrf_token %}
+                <div class="form-group">
+                    <label>Käyttäjä</label>
+                    <input autofocus type="text" name="username" />
+                </div>
+                <div class="form-group">
+                    <label>Salasana</label>
+                    <input type="password" name="password" />
+                </div>
+
+                <input
+                    type="submit"
+                    value="Kirjaudu"
+                    class="btn btn-success btn-sm"
+                />
+
+                <!-- <input
+                    type="button"
+                    onclick="wondow.location.href='/' "
+                    class="btn btn-secondary btn-sm"
+                    value="Back"
+                /> -->
+            </form>
+            <!-- <div>
+                <input
+                    type="button"
+                    onclick="wondow.location.href='/admin/'"
+                    class="btn btn-warning btn-sm"
+                    value="Admin pages"
+                />
+            </div> -->
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django import forms
 
 # Teosten tiedot
 class Work(models.Model):
@@ -17,22 +18,6 @@ class Work(models.Model):
     timestamp=models.DateTimeField(default=timezone.now, null=True, blank=True)
     def __str__(self):
         return f"{self.name} {self.year}"
-
-class Contact(models.Model):
-    # Yhteydenottajan tiedot ja viestin sisältö
-    sendersName=models.CharField(max_length=50, default="lähettäjän nimi")
-    sendersMessage=models.CharField(max_length=1000, default="lähettäjän viesti")
-    sendersEmail=models.CharField(max_length=50, default="lähettäjän email")
-    sendersPhonenumber=models.CharField(max_length=50, default="lähettäjän puh.nro")
-    # Kuittausviesti yhteydenottajalle
-    messageForSender=models.CharField(max_length=1000, default="")
-    # Ilmoitus tulleesta viestistä
-    message=models.CharField(max_length=1000, default="")
-    # Oma email
-    email=models.CharField(max_length=50, default="vastaanottajan email")
-    timestamp=models.DateTimeField(default=timezone.now, null=True, blank=True)
-    def __str__(self):
-        return f"{self.sendersName}"
     
 class Series(models.Model):
     seriesName=models.CharField(max_length=50, default="sarjan nimi")

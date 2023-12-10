@@ -14,19 +14,37 @@
                     {% csrf_token %}
                     <div class="form-group">
                         <label>Nimi</label>
-                        <input type="text" name="name" value="{{w.name}}" />
+                        <input
+                            type="text"
+                            name="name"
+                            value="{{w.name}}"
+                            required
+                        />
                     </div>
                     <div class="form-group">
                         <label>Vuosi</label>
-                        <input type="number" name="year" value="{{w.year}}" />
+                        <input
+                            type="number"
+                            name="year"
+                            value="{{w.year}}"
+                            required
+                        />
                     </div>
                     <div class="form-group">
                         <label>Tekniikka</label>
+                        {% if w.media != None %}
                         <input type="text" name="media" value="{{w.media}}" />
+                        {% else %}
+                        <input type="text" name="media" value="" />
+                        {% endif %}
                     </div>
                     <div class="form-group">
                         <label>Koko</label>
+                        {% if w.size != None %}
                         <input type="text" name="size" value="{{w.size}}" />
+                        {% else %}
+                        <input type="text" name="size" value="" />
+                        {% endif %}
                     </div>
                     <div class="form-group">
                         <label>Onko installaatio?</label>
@@ -39,52 +57,76 @@
 
                     <div class="form-group">
                         <label>Kuvalinkki 1</label>
+                        {% if w.imagelink1 != None %}
                         <input
                             type="text"
                             name="imagelink1"
                             value="{{w.imagelink1}}"
                         />
+                        {% else %}
+                        <input type="text" name="imagelink1" value="" />
+                        {% endif %}
                     </div>
 
                     <div class="form-group">
                         <label>Kuvalinkki 2</label>
+                        {% if w.imagelink2 != None %}
                         <input
                             type="text"
                             name="imagelink2"
                             value="{{w.imagelink2}}"
                         />
+                        {% else %}
+                        <input type="text" name="imagelink2" value="" />
+                        {% endif %}
                     </div>
                     <div class="form-group">
                         <label>Kuvalinkki 3</label>
+                        {% if w.imagelink3 != None %}
                         <input
                             type="text"
                             name="imagelink3"
                             value="{{w.imagelink3}}"
                         />
+                        {% else %}
+                        <input type="text" name="imagelink3" value="" />
+                        {% endif %}
                     </div>
                     <div class="form-group">
                         <label>Linkki videoon</label>
+                        {% if w.videolink != None %}
                         <input
                             type="text"
                             name="videolink"
                             value="{{w.videolink}}"
                         />
+                        {% else %}
+                        <input type="text" name="videolink" value="" />
+                        {% endif %}
                     </div>
                     <div class="form-group">
                         <label>Instagramlinkki</label>
+                        {% if w.instagramlink != None %}
                         <input
                             type="text"
                             name="instagramlink"
                             value="{{w.instagramlink}}"
                         />
+                        {% else %}
+                        <input type="text" name="instagramlink" value="" />
+                        {% endif %}
                     </div>
                     <div class="form-group">
                         <label>Yhteistyössä</label>
+                        {% if w.collaboration != None %}
                         <input
                             type="text"
                             name="collaboration"
                             value="{{w.collaboration}}"
                         />
+                        {% else %}
+                        <input type="text" name="collaboration" value="" />
+                        {% endif %}
                     </div>
                     <input
                         type="submit"

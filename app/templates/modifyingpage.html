@@ -2,10 +2,13 @@
 
 <div>
     <h4 class="title">TIETOJEN MUOKKAUS</h4>
-
+    <br />
     <button id="add-btn" class="btn-success btn-sm" onclick="showaddform()">
         Lisää uusi teos
     </button>
+    <br />
+    <br />
+    <a class="btn btn-danger btn-sm" href="/logout">Kirjaudu ulos</a>
 
     <center>
         <div class="luokka" id="add-div"><p>testi</p></div>
@@ -69,15 +72,15 @@
                         </div>
                         <div class="form-entry">
                         <label for="a" >Teoksen nimi *</label>
-                        <input id="a" class="card-text" class="card-text" type="text" name="name"><br>
+                        <input id="a" class="card-text" class="card-text" type="text" name="name" required><br>
                         </div>
                         <div class="form-entry">
-                         <label for="b" >Vuosi *</label>
-                         <input id="b" class="card-text" type="number" placeholder="2023" name="year"><br>
+                        <label for="b" >Vuosi *</label>
+                        <input id="b" class="card-text" type="number" placeholder="2023" name="year" required><br>
                         </div>
                         <div class="form-entry">
-                         <label for="c" >Tekniikka</label>
-                         <input id="c" class="card-text" type="text" name="media"><br>
+                        <label for="c" >Tekniikka</label>
+                        <input id="c" class="card-text" type="text" name="media"><br>
                         </div>
                         <div class="form-entry">
                         <label for="d" >Koko</label>
@@ -129,5 +132,4 @@
         document.getElementById("add-div").innerHTML = ""
     }
 </script>
-
 {% endblock %}
