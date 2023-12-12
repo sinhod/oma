@@ -1,24 +1,23 @@
 .button:hover {
     background-color: #5161b9;
     color: white;
-    font-family: "Lucida Console";
+    font-family: "Verdana";
 }
 .button {
     font-size: medium;
-    /* color: rgb(83, 83, 83); */
     color: rgb(187, 183, 183);
     margin: 10px;
-    font-family: "Lucida Console";
+    font-family: "Verdana";
 }
 .admin-link {
     color: rgb(31, 29, 29);
     margin: 10px;
     margin-left: 90%;
-    font-family: "Lucida Console";
+    font-family: "Verdana";
     font-size: smaller;
 }
 p {
-    font-family: "Lucida Console";
+    font-family: "Verdana";
 }
 .about-text {
     color: #5161b9;
@@ -36,7 +35,7 @@ p {
 }
 
 .about-link {
-    font-family: "Lucida Console";
+    font-family: "Verdana";
     font-size: small;
     padding-left: 5%;
 }
