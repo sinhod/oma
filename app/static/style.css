@@ -12,7 +12,8 @@
 .admin-link {
     color: rgb(31, 29, 29);
     margin: 10px;
-    margin-left: 90%;
+    margin-left: 80%;
+    margin-right: 5%;
     font-family: "Verdana";
     font-size: smaller;
 }

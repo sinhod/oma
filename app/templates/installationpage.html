@@ -21,6 +21,7 @@
                 {{s.name}} {{s.year}} <br>
                 {{s.size}}
             </p>
+            
             {% endif %}
             {% if s.size == None %}
             <p class="card-text" style="font-size: small; margin-top: 3%"">
@@ -30,9 +31,12 @@
 
             {% if s.collaboration != None %}
             <p class="card-text" style="font-size: small">Yhteistyössä {{s.collaboration}}</p>
-            {% endif %} {% if s.instagramLink != None %}
-            <p class="card-text" style="font-size: small">
-                <a href="{{s.instagramlink}}"> Instagram </a>
+
+            {% endif %} {% if s.instagramlink != None %}
+            <p class="card-text">
+                <a href="{{s.instagramlink}}" style="font-size: small">
+                    Instagram
+                </a>
                 <br />
                 <br />
             </p>
