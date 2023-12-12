@@ -189,7 +189,8 @@ def login_action(request):
         login(request, user)
         # Kutsutaan suoraan landingview.html
         w = Work.objects.all().order_by('-year')
-        context = { 'works': w }
+        s = Series.objects.all()
+        context = { 'works': w , 'series': s }
         return render(request, 'modifyingpage.html', context)
     
     # Jos ei kyseistä käyttäjää löydy
