@@ -3,6 +3,9 @@ from django.http import HttpResponse
 from django.contrib.auth import authenticate, login, logout
 from .models import Work, Series
 
+
+# render lukee templaatin ja lähettää html:n selaimeen
+
 def index(request):
     return render(request, "index.html")
 
@@ -17,7 +20,7 @@ def workview(request):
     return render(request, 'workpage.html', context)
 
 def installationview(request):
-    i = Work.objects.all().order_by('-year')
+    i = Work.objects.filter(installation=True).order_by('-year')
     context = { 'installations': i }
     return render(request, 'installationpage.html', context)
 

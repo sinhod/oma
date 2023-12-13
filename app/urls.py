@@ -6,6 +6,7 @@ from .views import landingview, aboutview, cvview, installationview, workview, \
       modifyingview, addview, deletework, confirmdeletework, edit_work_get, edit_work_post, \
       loginview, login_action, logout_action, contactview, addseriesview
 
+#Jokainen url/verkko-osoite linkittää johonkin funktioon
 urlpatterns = [
     path("", landingview),
     path("about/", aboutview),
@@ -26,6 +27,9 @@ urlpatterns = [
     path('logout/', logout_action),
 
     # Yhteydenottoa varten
-    path('contact/', contactview)
+    path('contact/', contactview),
+
+    # Teostietojen näyttämistä varten
+    path('info/', workview)
 
 ]

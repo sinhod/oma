@@ -1,30 +1,47 @@
 {% extends 'index.html' %} {% block content %}
 
-<div>
-    <h4 class="title">TEOKSET</h4>
-    <center>
-
+<h4 class="title">TEOKSET</h4>
+<center>
+    <!-- area -->
+    <div class="area">
         {% for s in works %}
-        <div class="card">
-            <div class="card-body">
-                <br />
+        <!-- views.py luotu works, joka on konteksti -->
+
+        <div
+            class="area-one-work"
+            id="area-one-work{{ s.id }}"
+            data-id="{{ s.id }}"
+        >
+            <!-- picture-area -->
+            <div
+                class="picture-area"
+                id="picture-area{{ s.id }}"
+                data-id="{{ s.id }}"
+                data-shown="true"
+            >
                 {% if s.imagelink1 != None %}
                 <img class="picture2" src="{{s.imagelink1}}" />
                 {% endif %}
+            </div>
+            <!-- picture-area kiinni -->
 
+            <!-- text-area -->
+            <div
+                class="text-area"
+                id="text-area{{ s.id }}"
+                data-id="{{ s.id }}"
+                data-shown="false"
+            >
                 {% if s.size != None %}
-            <p class="card-text" style="font-size: small; margin-top: 3%"">
-                {{s.name}} {{s.year}} <br>
-                {{s.size}}
-            </p>
-            {% endif %}
-            {% if s.size == None %}
-            <p class="card-text" style="font-size: small; margin-top: 3%"">
-                {{s.name}} {{s.year}}
-            </p>
-            {% endif %}
-
-                {% if s.collaboration != None %}
+                <p class="card-text" style="font-size: small; margin-top: 3%">
+                    {{s.name}} {{s.year}} <br />
+                    {{s.size}}
+                </p>
+                {% endif %} {% if s.size == None %}
+                <p class="card-text" style="font-size: small; margin-top: 3%">
+                    {{s.name}} {{s.year}}
+                </p>
+                {% endif %} {% if s.collaboration != None %}
                 <p class="card-text" style="font-size: small">
                     Yhteistyössä {{s.collaboration}}
                 </p>
@@ -33,16 +50,12 @@
                     <a href="{{s.instagramlink}}" style="font-size: small">
                         Instagram
                     </a>
-                    <br />
-                    <br />
                 </p>
                 {% endif %} {% if s.videolink != None %}
                 <p class="card-text">
                     <a href="{{s.videolink}}" style="font-size: small">
                         Videolink
                     </a>
-                    <br />
-                    <br />
                 </p>
                 {% endif %} {% if s.inseries != None %}
                 <p class="card-text" style="font-size: small">
@@ -50,9 +63,49 @@
                 </p>
                 {% endif %}
             </div>
+            <!-- text-area kiinni -->
         </div>
         {% endfor %}
-    </center>
-    <br />
-</div>
+    </div>
+    <!-- area kiinni -->
+</center>
+
+<script type="text/javascript">
+    $("document").ready(() => {
+        $(".text-area").hide() //piilottaa tekstin, luokka text-area. Piste viittaa luokkaan.
+        $(".area-one-work").click(function (e) {
+            //Luokka area-one-work sisältää sekä tekstin että kuvan. Klikkaus tältä alueelta kutsuu nimettömän funktion, jolla on parametri e, jota nyt tosin ei käytetä.
+            let id = $(this).attr("data-id") // Kertoo, mitä alueista juuri klikattiin. Laitetaan muuttujaan "juuri klikattu" asia, josta otetaan data-id. Attribuutti = esim. class, id... kaikki, mitä laitetaan tägin sisälle lisämääreeksi
+            let text_div_id = "text-area" + id //Luodaan kaksi stringiä, jotka kertovat, minkä div:in näkyvyyttä tulee muuttaa
+            let picture_div_id = "picture-area" + id
+            let text_state = $("#" + text_div_id).attr("data-shown") //Kumpi näkyy nyt? Laitetaan tieto state-muuttujiin. Lähtötilanteet näkyy ylhäällä koodissa. # viittaa id:hen.
+            let picture_state = $("#" + picture_div_id).attr("data-shown")
+            console.log(
+                //Printtaa selaimen konsoliin, jotta nähdään mitä tekee
+                id,
+                " ",
+                text_div_id,
+                " ",
+                picture_div_id,
+                " ",
+                text_state,
+                " ",
+                picture_state,
+                " "
+            )
+            if (text_state == "false") {
+                //Jos tekstin tila on false, piilotetaan kuva ja näytetään teksti, kun klikataan
+                $("#" + picture_div_id).hide()
+                $("#" + text_div_id).show()
+                $("#" + picture_div_id).attr("data-shown", "false") // Tila muuttuu toisinpäin
+                $("#" + text_div_id).attr("data-shown", "true")
+            } else if (text_state == "true") {
+                $("#" + picture_div_id).show()
+                $("#" + text_div_id).hide()
+                $("#" + picture_div_id).attr("data-shown", "true") // Tila muuttuu toisinpäin
+                $("#" + text_div_id).attr("data-shown", "false")
+            }
+        })
+    })
+</script>
 {% endblock %}
