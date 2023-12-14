@@ -23,30 +23,33 @@ p {
 .about-text {
     color: #5161b9;
     font-size: small;
-    padding-top: 5%;
+    /* padding-top: 5%;
     padding-left: 5%;
-    padding-right: 5%;
+    padding-right: 5%; */
 }
 .about-text2 {
     color: rgb(83, 83, 83);
     font-size: small;
-    padding-top: 5%;
-    padding-left: 5%;
-    padding-right: 5%;
 }
 
 .about-link {
     font-family: "Verdana";
     font-size: small;
-    padding-left: 5%;
 }
-.about {
+
+.area-text {
+    justify-content: center;
+    background-color: white;
+    border-radius: 3px;
+    border: 1px white;
+    padding: 40px;
+}
+/* .about {
     margin-left: 20%;
     margin-right: 20%;
-    padding-bottom: 3%;
-    min-width: 270px;
+    min-width: 300px;
     background-color: white;
-}
+} */
 
 .color {
     background-color: rgb(54, 52, 52);
@@ -109,6 +112,7 @@ p {
 /* Kuva email:ista */
 .emailpicture {
     max-width: 220px;
+    padding-bottom: 5%;
 }
 
 /* Teostietojen näyttämistä varten */
