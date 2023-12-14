@@ -21,8 +21,11 @@ p {
     font-family: "Verdana";
 }
 .about-text {
-    color: #5161b9;
-    font-size: small;
+    /* color: #5161b9; */
+    /* color: indigo; */
+    color: rgb(39, 0, 130);
+    font-size: large;
+    font-family: Tahoma;
     /* padding-top: 5%;
     padding-left: 5%;
     padding-right: 5%; */
@@ -34,7 +37,7 @@ p {
 
 .about-link {
     font-family: "Verdana";
-    font-size: small;
+    font-size: large;
 }
 
 .area-text-about {
@@ -119,7 +122,7 @@ p {
 
 /* Kuva email:ista */
 .emailpicture {
-    max-width: 220px;
+    max-width: 300px;
 }
 
 /* Teostietojen näyttämistä varten */
