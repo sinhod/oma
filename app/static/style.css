@@ -46,6 +46,7 @@ p {
     border-radius: 3px;
     border: 1px white;
     padding: 40px;
+    margin: 10px;
 }
 .area-text-contact {
     justify-content: center;
@@ -54,6 +55,7 @@ p {
     border: 1px white;
     padding: 40px;
     padding-bottom: 47px;
+    margin: 10px;
 }
 /* .about {
     margin-left: 20%;
