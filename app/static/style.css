@@ -37,13 +37,20 @@ p {
     font-size: small;
 }
 
-.area-text {
+.area-text-about {
     justify-content: center;
     background-color: white;
     border-radius: 3px;
     border: 1px white;
     padding: 40px;
-    padding-bottom: 46px;
+}
+.area-text-contact {
+    justify-content: center;
+    background-color: white;
+    border-radius: 3px;
+    border: 1px white;
+    padding: 40px;
+    padding-bottom: 47px;
 }
 /* .about {
     margin-left: 20%;
