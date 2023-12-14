@@ -41,6 +41,10 @@
                 <p class="card-text" style="font-size: small; margin-top: 3%">
                     {{s.name}} {{s.year}}
                 </p>
+                {% endif %} {% if s.ownedby != None %}
+                <p class="card-text" style="font-size: small; margin-top: 3%">
+                    Omistuksessa: {{s.ownedby}}
+                </p>
                 {% endif %} {% if s.collaboration != None %}
                 <p class="card-text" style="font-size: small">
                     Yhteistyössä {{s.collaboration}}

@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login, logout
-from .models import Work, Series
+from .models import Work, Series, About
 
 
 # render lukee templaatin ja lähettää html:n selaimeen
@@ -25,7 +25,9 @@ def installationview(request):
     return render(request, 'installationpage.html', context)
 
 def aboutview(request):
-    return render(request, 'aboutpage.html')
+    a = About.objects.all()
+    context = {'about': a}
+    return render(request, 'aboutpage.html', context)
 
 def cvview(request):
     variable = "Tämä on merkkijono"
@@ -80,8 +82,11 @@ def addview(request):
         k = request.POST['collaboration']
         if k == "":
             k = None
+        l = request.POST['ownedby']
+        if l == "":
+            l = None
         Work(name = a, inseries = ab, year = b, media = c, size = d, installation = e,
-            imagelink1 = f, imagelink2 = g, imagelink3 = h, videolink = i, instagramlink = j, collaboration = k).save()
+            imagelink1 = f, imagelink2 = g, imagelink3 = h, videolink = i, instagramlink = j, collaboration = k, ownedby = l).save()
         return redirect(modifyingview)
 
 def addseriesview(request):
@@ -160,6 +165,10 @@ def edit_work_post(request, id):
             if coll == "":
                 coll = None
 
+            own=request.POST['ownedby']
+            if own == "":
+                own = None
+
             work.instagramlink=instalink
             work.media=med
             work.size=siz
@@ -168,9 +177,11 @@ def edit_work_post(request, id):
             work.imagelink3=imglink3
             work.videolink=vlink
             work.collaboration=coll
+            work.ownedby=own
             
             work.save()
             return redirect(modifyingview)
+
 
 # Login toimintoa varten
 

@@ -39,6 +39,10 @@
                 <p class="card-text" style="font-size: small">
                     Yhteistyössä {{s.collaboration}}
                 </p>
+                {% endif %} {% if s.ownedby != None %}
+                <p class="card-text" style="font-size: small">
+                    Omistuksessa: {{s.ownedby}}
+                </p>
                 {% endif %} {% if s.instagramlink != None %}
                 <p class="card-text">
                     <a href="{{s.instagramlink}}" style="font-size: small">
@@ -99,7 +103,7 @@
                             <label class="red-text">* pakollinen tieto</label>
                         </div>
                         <div class="form-entry">
-                        <label for="a"> Teoksen nimi *</label>
+                        <label class="red-text" for="a"> Teoksen nimi *</label>
                         <input id="a" class="card-text" class="card-text" type="text" name="name" required><br>
                         </div>
                         <div class="form-entry">
@@ -107,7 +111,7 @@
                         <input id="ab" class="card-text" class="card-text" type="text" name="seriesname"><br>
                         </div>
                         <div class="form-entry">
-                        <label for="b" >Vuosi *</label>
+                        <label class="red-text" for="b" >Vuosi *</label>
                         <input id="b" class="card-text" type="number" placeholder="2023" name="year" required><br>
                         </div>
                         <div class="form-entry">
@@ -119,8 +123,12 @@
                         <input id="d" class="card-text" type="text" name="size"><br>
                         </div>
                         <div class="form-entry">
-                        <label>Kuvalinkit 1</label>
-                        <input class="card-text" type="text" placeholder="kuvalinkki 1" name="imagelink1"><br>
+                        <label for="d" >Omistuksessa</label>
+                        <input id="d" class="card-text" type="text" name="ownedby"><br>
+                        </div>
+                        <div class="form-entry">
+                        <label class="red-text">Kuvalinkki 1 *</label>
+                        <input class="card-text" type="text" placeholder="kuvalinkki 1" name="imagelink1" required><br>
                         </div>
                         <div class="form-entry">
                         <label>2</label>
@@ -143,7 +151,7 @@
                         <input id="g" class="card-text" type="text" name="collaboration"><br>
                         </div>
                         <div class="form-entry">
-                        <label>Onko teos installaatio?</label>
+                        <label class="red-text">Onko teos installaatio? *</label>
                         <input class="card-text" type="radio" name="installation" value="1" checked> Kyllä </input>
                         <input class="card-text" type="radio" name="installation" value="0" checked> Ei </input>
                         <br/>
