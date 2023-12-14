@@ -118,7 +118,7 @@ p {
 }
 
 .area-one-work {
-    /* width: 32%; */
+    width: 32%;
     min-width: 300px;
     height: 350px;
     display: flex;
