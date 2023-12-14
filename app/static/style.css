@@ -115,6 +115,7 @@ p {
 .area {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .area-one-work {
