@@ -35,13 +35,22 @@
                 {% if s.size != None %}
                 <p class="card-text" style="font-size: small; margin-top: 3%">
                     {{s.name}} {{s.year}} <br />
-                    {{s.size}}
+                    {{s.size}}<br />
+                    {% if s.media != None %}{{s.media}}{% endif %}
                 </p>
                 {% endif %} {% if s.size == None %}
                 <p class="card-text" style="font-size: small; margin-top: 3%">
-                    {{s.name}} {{s.year}}
+                    {{s.name}} {{s.year}}<br />
+                    {% if s.media != None %} {{s.media}} {% endif %}
                 </p>
-                {% endif %} {% if s.ownedby != None %}
+                {% endif %}
+
+                <!-- {% if s.media != None %}
+                <p class="card-text" style="font-size: small; margin-top: 3%">
+                    {{s.media}}
+                </p>
+                {% endif %} -->
+                {% if s.ownedby != None %}
                 <p class="card-text" style="font-size: small; margin-top: 3%">
                     Omistuksessa: {{s.ownedby}}
                 </p>
