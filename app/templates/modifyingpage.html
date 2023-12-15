@@ -60,6 +60,9 @@
                     Kuvaaja {{ s.photographer }}
                 </p>
                 {% endif %}
+                <p class="card-text" style="font-size: small">
+                    Järjestys {{ s.ordershowonline }}
+                </p>
                 <div>
                     <a
                         href="/confirm-deletework/{{s.id}}"
@@ -155,6 +158,10 @@
                         <input id="g" class="card-text" type="text" name="collaboration"><br>
                         </div>
                         <div class="form-entry">
+                        <label for="i" >Kuvaaja</label>
+                        <input id="i" class="card-text" type="text" name="photographer"><br>
+                        </div>
+                        <div class="form-entry">
                         <label class="red-text">Onko teos installaatio? *</label>
                         <input class="card-text" type="radio" name="installation" value="1" checked> Kyllä </input>
                         <input class="card-text" type="radio" name="installation" value="0" checked> Ei </input>
@@ -162,8 +169,15 @@
                         <br/>
                         </div>
                         <div class="form-entry">
-                        <label for="i" >Kuvaaja</label>
-                        <input id="i" class="card-text" type="text" name="photographer"><br>
+                        <label class="red-text">Näytetäänkö netissä?? *</label>
+                        <input class="card-text" type="radio" name="showonline" value="1" checked> Kyllä </input>
+                        <input class="card-text" type="radio" name="showonline" value="0" checked> Ei </input>
+                        <br/>
+                        <br/>
+                        </div>
+                        <div class="form-entry">
+                        <label for="j" >Monentena kuvana näytetään?</label>
+                        <input id="j" class="card-number" type="text" name="ordershowonline"><br>
                         </div>
                         <div class="form-entry">
                         <input type="submit" value="OK" class="btn btn-success btn-sm" name="">

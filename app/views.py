@@ -15,12 +15,12 @@ def landingview(request):
     return render(request, 'landingpage.html', context)
 
 def workview(request):
-    w = Work.objects.filter(showonline=True).order_by('-id')
+    w = Work.objects.filter(showonline=True).order_by('ordershowonline')
     context = { 'works': w }
     return render(request, 'workpage.html', context)
 
 def installationview(request):
-    i = Work.objects.filter(installation=True).order_by('year')
+    i = Work.objects.filter(installation=True).order_by('ordershowonline')
     context = { 'installations': i }
     return render(request, 'installationpage.html', context)
 
@@ -89,8 +89,9 @@ def addview(request):
         if m == "":
             m = None
         o = request.POST['showonline']
+        p = request.POST['ordershowonline']
         Work(name = a, inseries = ab, year = b, media = c, size = d, installation = e,
-            imagelink1 = f, imagelink2 = g, imagelink3 = h, videolink = i, instagramlink = j, collaboration = k, ownedby = l, photographer = m, showonline = o).save()
+            imagelink1 = f, imagelink2 = g, imagelink3 = h, videolink = i, instagramlink = j, collaboration = k, ownedby = l, photographer = m, showonline = o, ordershowonline = p).save()
         return redirect(modifyingview)
 
 def addseriesview(request):
@@ -134,6 +135,7 @@ def edit_work_post(request, id):
             work.year=request.POST['year']
             work.installation=request.POST['installation']
             work.showonline=request.POST['showonline']
+            work.ordershowonline=request.POST['ordershowonline']
 
             # Tallennetaan "tyhjä arvo "tietokantaan None arvona. (None=Pythonin muuttuja, jolla ei ole sisältöä)
             # Web-lomake antaa tyhjänä string:inä, jos käyttäjä ei anna arvoa.

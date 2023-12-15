@@ -25,14 +25,6 @@
                         />
                     </div>
                     <div class="form-group">
-                        <label>Sarjan nimi</label>
-                        <input
-                            type="text"
-                            name="seriesname"
-                            value="{{w.inseries.seriesname}}"
-                        />
-                    </div>
-                    <div class="form-group">
                         <label class="red-text">Vuosi *</label>
                         <input
                             type="number"
@@ -42,43 +34,24 @@
                         />
                     </div>
                     <div class="form-group">
-                        <label>Tekniikka</label>
-                        {% if w.media != None %}
-                        <input type="text" name="media" value="{{w.media}}" />
-                        {% else %}
-                        <input type="text" name="media" value="" />
-                        {% endif %}
+                        <label class="red-text">Onko teos installaatio? *</label>
+                        <input class="card-text" type="radio" name="installation" value="1" checked> Kyllä </input>
+                        <input class="card-text" type="radio" name="installation" value="0" checked> Ei </input>
                     </div>
                     <div class="form-group">
-                        <label>Koko</label>
-                        {% if w.size != None %}
-                        <input type="text" name="size" value="{{w.size}}" />
-                        {% else %}
-                        <input type="text" name="size" value="" />
-                        {% endif %}
+                        <label class="red-text">Näytetäänkö netissä? *</label>
+                        <input class="card-text" type="radio" name="showonline" value="1" checked> Kyllä </input>
+                        <input class="card-text" type="radio" name="showonline" value="0" checked> Ei </input>
                     </div>
                     <div class="form-group">
-                        <label>Sarjassa</label>
-                        {% if w.inseries.seriesname != None %}
-                        <input type="text" name="size" value="{{w.inseries.seriesname}}" />
-                        {% else %}
-                        <input type="text" name="size" value="" />
-                        {% endif %}
-                    </div>
-
-                    <div class="form-group">
-                        <label>Omistuksessa</label>
-                        {% if w.ownedby != None %}
+                        <label class="red-text">Monentena kuvana näytetään? *</label>
                         <input
-                            type="text"
-                            name="ownedby"
-                            value="{{w.ownedby}}"
+                            type="number"
+                            name="ordershowonline"
+                            value="{{w.ordershowonline}}"
+                            required
                         />
-                        {% else %}
-                        <input type="text" name="ownedby" value=""/>
-                        {% endif %}
                     </div>
-
                     <div class="form-group">
                         <label class="red-text">Kuvalinkki 1 *</label>
                         {% if w.imagelink1 != None %}
@@ -116,6 +89,45 @@
                         <input type="text" name="imagelink3" value="" />
                         {% endif %}
                     </div>
+                    <div class="form-group">
+                        <label>Tekniikka</label>
+                        {% if w.media != None %}
+                        <input type="text" name="media" value="{{w.media}}" />
+                        {% else %}
+                        <input type="text" name="media" value="" />
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        <label>Koko</label>
+                        {% if w.size != None %}
+                        <input type="text" name="size" value="{{w.size}}" />
+                        {% else %}
+                        <input type="text" name="size" value="" />
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        <label>Sarjan nimi</label>
+                        {% if w.inseries.seriesname != None %}
+                        <input type="text" name="seriesname" value="{{w.inseries.seriesname}}" />
+                        {% else %}
+                        <input type="text" name="seriesname" value="" />
+                        {% endif %}
+                    </div>
+
+                    <div class="form-group">
+                        <label>Omistuksessa</label>
+                        {% if w.ownedby != None %}
+                        <input
+                            type="text"
+                            name="ownedby"
+                            value="{{w.ownedby}}"
+                        />
+                        {% else %}
+                        <input type="text" name="ownedby" value=""/>
+                        {% endif %}
+                    </div>
+
+                    
                     <div class="form-group">
                         <label>Linkki videoon</label>
                         {% if w.videolink != None %}
@@ -164,16 +176,7 @@
                         <input type="text" name="photographer" value="" />
                         {% endif %}
                     </div>
-                    <div class="form-entry">
-                        <label class="red-text">Onko teos installaatio? *</label>
-                        <input class="card-text" type="radio" name="installation" value="1" checked> Kyllä </input>
-                        <input class="card-text" type="radio" name="installation" value="0" checked> Ei </input>
-                    </div>
-                    <div class="form-entry">
-                        <label class="red-text">Näytetäänkö netissä? *</label>
-                        <input class="card-text" type="radio" name="showonline" value="1" checked> Kyllä </input>
-                        <input class="card-text" type="radio" name="showonline" value="0" checked> Ei </input>
-                    </div>
+                    
                     <div>
                     <input
                         type="submit"
@@ -186,7 +189,6 @@
                         value="Peruuta"
                         class="btn btn-secondary btn-sm"
                     />
-                </div>
                 </form>
             </div>
         </div>
