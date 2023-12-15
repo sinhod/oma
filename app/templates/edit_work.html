@@ -14,6 +14,7 @@
                 <form class="form-float-right" method="post" action="/edit-work-post/{{w.id}}/">
                     {% csrf_token %}
                     <label class="red-text">* pakollinen tieto</label>
+                    
                     <div class="form-group">
                         <label>Nimi *</label>
                         <input
@@ -56,20 +57,26 @@
                         <input type="text" name="size" value="" />
                         {% endif %}
                     </div>
-                    <div class="form-entry">
-                        <label class="red-text">Onko teos installaatio? *</label>
-                        <input class="card-text" type="radio" name="installation" value="1" checked> Kyllä </input>
-                        <input class="card-text" type="radio" name="installation" value="0" checked> Ei </input>
+                    <div class="form-group">
+                        <label>Sarjassa</label>
+                        {% if w.inseries.seriesname != None %}
+                        <input type="text" name="size" value="{{w.inseries.seriesname}}" />
+                        {% else %}
+                        <input type="text" name="size" value="" />
+                        {% endif %}
                     </div>
-               
+
                     <div class="form-group">
                         <label>Omistuksessa</label>
-
+                        {% if w.ownedby != None %}
                         <input
                             type="text"
                             name="ownedby"
                             value="{{w.ownedby}}"
                         />
+                        {% else %}
+                        <input type="text" name="ownedby" value=""/>
+                        {% endif %}
                     </div>
 
                     <div class="form-group">
@@ -144,6 +151,28 @@
                         {% else %}
                         <input type="text" name="collaboration" value="" />
                         {% endif %}
+
+                    <div class="form-group">
+                        <label>Kuvaaja</label>
+                        {% if w.photographer != None %}
+                        <input
+                            type="text"
+                            name="photographer"
+                            value="{{w.photographer}}"
+                        />
+                        {% else %}
+                        <input type="text" name="photographer" value="" />
+                        {% endif %}
+                    </div>
+                    <div class="form-entry">
+                        <label class="red-text">Onko teos installaatio? *</label>
+                        <input class="card-text" type="radio" name="installation" value="1" checked> Kyllä </input>
+                        <input class="card-text" type="radio" name="installation" value="0" checked> Ei </input>
+                    </div>
+                    <div class="form-entry">
+                        <label class="red-text">Näytetäänkö netissä? *</label>
+                        <input class="card-text" type="radio" name="showonline" value="1" checked> Kyllä </input>
+                        <input class="card-text" type="radio" name="showonline" value="0" checked> Ei </input>
                     </div>
                     <div>
                     <input

@@ -21,7 +21,9 @@ class Work(models.Model):
     instagramlink=models.CharField(max_length=200, default="", null=True, blank=True)
     collaboration=models.CharField(max_length=100, default="", null=True, blank=True)
     ownedby=models.CharField(max_length=100, default="", null=True, blank=True)
+    photographer=models.CharField(max_length=100, default="", null=True, blank=True)
     timestamp=models.DateTimeField(default=timezone.now, null=True, blank=True)
+    showonline=models.BooleanField(default=True) #Pakollinen
     def __str__(self): #Django administration sivua varten
         return f"{self.name} {self.year}"
     

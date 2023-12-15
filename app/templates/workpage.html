@@ -65,6 +65,10 @@
                 <p class="card-text" style="font-size: small">
                     Sarjassa: {{ s.inseries.seriesname }}
                 </p>
+                {% endif %} {% if s.photographer != None %}
+                <p class="card-text" style="font-size: small">
+                    Kuvaaja: {{ s.photographer }}
+                </p>
                 {% endif %}
             </div>
             <!-- text-area kiinni -->

@@ -15,12 +15,12 @@ def landingview(request):
     return render(request, 'landingpage.html', context)
 
 def workview(request):
-    w = Work.objects.all().order_by('-year')
+    w = Work.objects.filter(showonline=True).order_by('-id')
     context = { 'works': w }
     return render(request, 'workpage.html', context)
 
 def installationview(request):
-    i = Work.objects.filter(installation=True).order_by('-year')
+    i = Work.objects.filter(installation=True).order_by('year')
     context = { 'installations': i }
     return render(request, 'installationpage.html', context)
 
@@ -85,8 +85,12 @@ def addview(request):
         l = request.POST['ownedby']
         if l == "":
             l = None
+        m = request.POST['photographer']
+        if m == "":
+            m = None
+        o = request.POST['showonline']
         Work(name = a, inseries = ab, year = b, media = c, size = d, installation = e,
-            imagelink1 = f, imagelink2 = g, imagelink3 = h, videolink = i, instagramlink = j, collaboration = k, ownedby = l).save()
+            imagelink1 = f, imagelink2 = g, imagelink3 = h, videolink = i, instagramlink = j, collaboration = k, ownedby = l, photographer = m, showonline = o).save()
         return redirect(modifyingview)
 
 def addseriesview(request):
@@ -129,6 +133,7 @@ def edit_work_post(request, id):
             work.name=request.POST['name']
             work.year=request.POST['year']
             work.installation=request.POST['installation']
+            work.showonline=request.POST['showonline']
 
             # Tallennetaan "tyhjä arvo "tietokantaan None arvona. (None=Pythonin muuttuja, jolla ei ole sisältöä)
             # Web-lomake antaa tyhjänä string:inä, jos käyttäjä ei anna arvoa.
@@ -144,6 +149,10 @@ def edit_work_post(request, id):
             siz=request.POST['size']
             if siz == "":
                 siz = None
+
+            ser=request.POST['seriesname']
+            if ser == "":
+                ser = None
 
             imglink1=request.POST['imagelink1']
             if imglink1 == "":
@@ -169,15 +178,21 @@ def edit_work_post(request, id):
             if own == "":
                 own = None
 
+            photog=request.POST['photographer']
+            if photog == "":
+                photog= None
+
             work.instagramlink=instalink
             work.media=med
             work.size=siz
+            work.inseries=ser
             work.imagelink1=imglink1
             work.imagelink2=imglink2
             work.imagelink3=imglink3
             work.videolink=vlink
             work.collaboration=coll
             work.ownedby=own
+            work.photographer=photog
             
             work.save()
             return redirect(modifyingview)

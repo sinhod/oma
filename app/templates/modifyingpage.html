@@ -55,6 +55,10 @@
                 <p class="card-text" style="font-size: small">
                     Sarjassa {{ s.inseries.seriesname }}
                 </p>
+                {% endif %} {% if s.photographer != None %}
+                <p class="card-text" style="font-size: small">
+                    Sarjassa {{ s.photographer }}
+                </p>
                 {% endif %}
                 <div>
                     <a
@@ -156,6 +160,10 @@
                         <input class="card-text" type="radio" name="installation" value="0" checked> Ei </input>
                         <br/>
                         <br/>
+                        </div>
+                        <div class="form-entry">
+                        <label for="i" >Kuvaaja</label>
+                        <input id="i" class="card-text" type="text" name="photographer"><br>
                         </div>
                         <div class="form-entry">
                         <input type="submit" value="OK" class="btn btn-success btn-sm" name="">
