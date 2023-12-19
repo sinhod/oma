@@ -58,17 +58,15 @@
                 <p class="card-text" style="font-size: small">
                     Yhteistyössä {{s.collaboration}}
                 </p>
+                <br />
                 {% endif %} {% if s.instagramlink != None %}
-                <p class="card-text">
-                    <a href="{{s.instagramlink}}" style="font-size: small">
-                        Instagram
-                    </a>
-                </p>
+                <p>Video:</p>
+                <a class="button-link" href="{{s.instagramlink}}">
+                    Instagram
+                </a>
                 {% endif %} {% if s.videolink != None %}
-                <p class="card-text">
-                    <a href="{{s.videolink}}" style="font-size: small">
-                        Videolink
-                    </a>
+                <p class="button-link">
+                    <a href="{{s.videolink}}"> Videolinkki </a>
                 </p>
                 {% endif %} {% if s.inseries != None %}
                 <p class="card-text" style="font-size: small">

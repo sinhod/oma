@@ -9,6 +9,16 @@
     margin: 10px;
     font-family: "Verdana";
 }
+/* Napit teostiedoissa */
+.button-link {
+    color: blue;
+    font-size: medium;
+    background-color: coral;
+    padding: 3px;
+    border-radius: 3px;
+    border: 1px coral;
+    box-shadow: #5161b9;
+}
 .admin-link {
     color: rgb(31, 29, 29);
     margin: 10px;
