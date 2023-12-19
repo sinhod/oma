@@ -31,17 +31,19 @@
                 id="text-area{{ s.id }}"
                 data-id="{{ s.id }}"
                 data-shown="false"
-            >
+
+                <p class="card-text" style="font-size: medium; margin-top: 3%">{{s.name}}</p>
+            
                 {% if s.size != None %}
                 <p class="card-text" style="font-size: small; margin-top: 3%">
-                    {{s.name}} {{s.year}} <br />
-                    {{s.size}}<br />
+                    {{s.size}} <br />
+                    {{s.year}}<br />
                     {% if s.media != None %}{{s.media}}{% endif %}
                 </p>
                 {% endif %} {% if s.size == None %}
                 <p class="card-text" style="font-size: small; margin-top: 3%">
-                    {{s.name}} {{s.year}}<br />
-                    {% if s.media != None %} {{s.media}} {% endif %}
+                    {% if s.media != None %} {{s.media}} {% endif %}<br />
+                    {{s.year}}
                 </p>
                 {% endif %}
 

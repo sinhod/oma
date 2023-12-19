@@ -11,13 +11,12 @@
 }
 /* Napit teostiedoissa */
 .button-link {
-    color: blue;
+    color: white;
     font-size: medium;
-    background-color: coral;
+    background-color: gray;
     padding: 3px;
     border-radius: 3px;
     border: 1px coral;
-    box-shadow: #5161b9;
 }
 .admin-link {
     color: rgb(31, 29, 29);
