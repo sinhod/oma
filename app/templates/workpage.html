@@ -32,49 +32,53 @@
                 data-id="{{ s.id }}"
                 data-shown="false"
 
-                <p class="card-text" style="font-size: medium; margin-top: 3%">{{s.name}}</p>
+                <p class="card-text" style="font-size: large">{{s.name}}</p>
+
+                <p class="card-text" style="font-size: small">{{s.year}}</p>
             
                 {% if s.size != None %}
-                <p class="card-text" style="font-size: small; margin-top: 3%">
-                    {{s.size}} <br />
-                    {{s.year}}<br />
-                    {% if s.media != None %}{{s.media}}{% endif %}
-                </p>
-                {% endif %} {% if s.size == None %}
-                <p class="card-text" style="font-size: small; margin-top: 3%">
-                    {% if s.media != None %} {{s.media}} {% endif %}<br />
-                    {{s.year}}
+                <p class="card-text" style="font-size: small">
+                    {{s.size}} 
                 </p>
                 {% endif %}
 
-                <!-- {% if s.media != None %}
-                <p class="card-text" style="font-size: small; margin-top: 3%">
-                    {{s.media}}
-                </p>
-                {% endif %} -->
+                {% if s.media != None %}
+                <p class="card-text" style="font-size: small">{{s.media}} </p>
+                {% endif %}
+
                 {% if s.ownedby != None %}
                 <p class="card-text" style="font-size: small; margin-top: 3%">
                     Omistuksessa: {{s.ownedby}}
                 </p>
-                {% endif %} {% if s.collaboration != None %}
+                {% endif %}
+                
+                {% if s.collaboration != None %}
                 <p class="card-text" style="font-size: small">
                     Yhteistyössä {{s.collaboration}}
                 </p>
-                <br />
-                {% endif %} {% if s.instagramlink != None %}
+                {% endif %}
+                
+                {% if s.instagramlink != None %}
+                <br>
                 <p class="card-text" style="font-size: small">Video:</p>
                 <a class="button-link" href="{{s.instagramlink}}">
                     Instagram
                 </a>
-                {% endif %} {% if s.videolink != None %}
+                {% endif %}
+                
+                {% if s.videolink != None %}
                 <p class="button-link">
                     <a href="{{s.videolink}}"> Videolinkki </a>
                 </p>
-                {% endif %} {% if s.inseries != None %}
+                {% endif %}
+                
+                {% if s.inseries != None %}
                 <p class="card-text" style="font-size: small">
                     Sarjassa: {{ s.inseries.seriesname }}
                 </p>
-                {% endif %} {% if s.photographer != None %}
+                {% endif %}
+                
+                {% if s.photographer != None %}
                 <p class="card-text" style="font-size: small">
                     Kuvaaja: {{ s.photographer }}
                 </p>

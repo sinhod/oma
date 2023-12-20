@@ -1,3 +1,4 @@
+/* Navigointinapit */
 .button:hover {
     background-color: #5161b9;
     color: white;
@@ -18,6 +19,7 @@
     border-radius: 3px;
     border: 1px coral;
 }
+/* Linkki Django admin sivuille */
 .admin-link {
     color: rgb(31, 29, 29);
     margin: 10px;
@@ -116,8 +118,12 @@ p {
     display: inline-flex;
 }
 
+/* Teoskuvien ja -tietojen näyttämistä varten */
 .card {
     max-width: 500px;
+}
+.card-text {
+    margin-top: 3%;
 }
 
 /*Uuden teoksen lisäämiseen liittyvä.....display-flex ei toimi kuitenkaan...... */
@@ -143,6 +149,7 @@ p {
     justify-content: center;
 }
 
+/* Teostietojen näyttämistä varten */
 .area-one-work {
     width: 32%;
     min-width: 300px;
@@ -154,4 +161,5 @@ p {
     align-items: center;
     border-radius: 3px;
     border: 1px white;
+    padding: 3%;
 }
